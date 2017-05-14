@@ -1,0 +1,54 @@
+#!/bin/bash
+
+function MostrarCodigo(){
+echo -e "\t${red}�STE ES EL C�DIGO DE SU PROGRAMA.${endColor}"
+
+less PracticaIntermedia.c
+
+}
+
+function CompilarArchivo(){
+
+cc PracticaIntermedia.c -o PracticaIntermedia
+echo -e "\t${red}SU PROGRAMA HA SIDO COMPILADO CON ÉXITO\n ${endColor}"
+
+}
+
+function EjecutarPrograma(){
+echo -e "\t${red}SU PROGRAMA ESTÁ SIENDO EJECUTADO\n${endColor}"
+./PracticaIntermedia
+
+}
+function Salir(){
+echo -e "\t${red} GRACIAS POR SU VISITA${endColor}"
+exit 0
+}
+
+
+# Caracteres de escape para colorear la salida estándar en bash.
+red='\e[0;31m'
+blue='\e[0;34m'
+endColor='\e[0m'
+
+
+while true # Bucle infinito
+do
+
+echo -e "\t${red} BIENVENIDO AL MENU DE LA PRÁCTICA INTERMEDIA\n"                   
+echo -e "${blue}Por favor, seleccione una opción de la lista:${endColor}"
+echo -e "\t${blue}1. Mostrar Código del Programa${endColor}"
+echo -e "\t${blue}2. Compilar el Archivo${endColor}"
+echo -e "\t${blue}3. Ejecutar Programa ${endColor}"
+echo -e "\t${blue}4. Salir ${endColor}"
+
+read respuesta
+
+case $respuesta in
+1) MostrarCodigo;;
+2) CompilarArchivo;;
+3) EjecutarPrograma;;
+4) Salir;;
+*) echo -e "\t${red} ¡¡ACCIÓN NO VALIDA!!\n${endColor}"
+esac
+done
+
