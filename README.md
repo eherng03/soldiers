@@ -1,2 +1,2 @@
 # soldiers
-Threads program, that simulates a soldiers mission
+Program that simulates a soldiers mission, using threads in C.
